@@ -190,7 +190,6 @@ export const DashboardToolbar: React.FC<ToolbarProps> = ({
 
   return (
     <div className="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm">
-      {/* Main Toolbar */}
       <div className="px-4 py-4 space-y-3 md:space-y-0">
         <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center justify-between">
           <div className="flex flex-wrap gap-2 items-center">
@@ -216,7 +215,6 @@ export const DashboardToolbar: React.FC<ToolbarProps> = ({
           </button>
         </div>
 
-        {/* Mobile Filters Dropdown */}
         <div className="sm:hidden">
           <FilterPanel
             selectedLocation={selectedLocation}
@@ -228,7 +226,6 @@ export const DashboardToolbar: React.FC<ToolbarProps> = ({
         </div>
       </div>
 
-      {/* Desktop Filters Panel */}
       {showFilters && (
         <div className="hidden sm:block border-t border-slate-200 dark:border-slate-800 px-4 py-4 bg-slate-50 dark:bg-slate-800/50">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -239,7 +236,6 @@ export const DashboardToolbar: React.FC<ToolbarProps> = ({
               onPromotionChange={onPromotionChange}
             />
             
-            {/* Active Filters Summary */}
             {(selectedLocation !== 'All Locations' || selectedPromotion !== 'All Promotions') && (
               <div className="bg-white dark:bg-slate-700 rounded-lg border border-blue-200 dark:border-blue-900 p-3">
                 <p className="text-xs font-semibold text-blue-900 dark:text-blue-200 mb-2">Active Filters</p>

@@ -25,12 +25,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onSectionChange
 
   const handleSectionChange = (section: SectionType) => {
     onSectionChange(section);
-    setMobileOpen(false); // Close mobile menu when section changes
+    setMobileOpen(false);
   };
 
   return (
     <>
-      {/* Mobile Menu Button */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
         className="fixed top-4 left-4 z-50 lg:hidden bg-orange-600 text-white p-2 rounded-lg"
@@ -38,7 +37,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onSectionChange
         {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
-      {/* Mobile Overlay */}
       {mobileOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-40 lg:hidden"
@@ -46,7 +44,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onSectionChange
         />
       )}
 
-      {/* Sidebar */}
       <aside
         className={`${
           collapsed ? 'w-20' : 'w-64'
@@ -54,7 +51,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onSectionChange
           mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
       >
-        {/* Logo */}
         <div className="p-6 border-b border-slate-700 dark:border-slate-800">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center font-bold text-lg">
@@ -64,7 +60,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onSectionChange
           </div>
         </div>
 
-        {/* Navigation */}
         <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
           {menuItems.map((item) => {
             const Icon = item.icon;
@@ -88,7 +83,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onSectionChange
           })}
         </nav>
 
-        {/* Dark Mode & Settings */}
         <div className="p-4 space-y-2 border-t border-slate-700 dark:border-slate-800">
           <button
             onClick={toggleDark}
@@ -119,7 +113,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onSectionChange
             {!collapsed && <span>Logout</span>}
           </button>
 
-          {/* Toggle Button */}
           <button
             onClick={() => setCollapsed(!collapsed)}
             className="w-full p-4 text-slate-400 hover:text-white transition-colors border-t border-slate-700"

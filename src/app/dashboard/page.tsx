@@ -6,7 +6,7 @@ import { TopMetrics } from '@/components/TopMetrics';
 import { DashboardToolbar } from '@/components/DashboardToolbar';
 import { TrafficChart, HourlyTrafficChart, ContentEngagementChart, PromotionTable } from '@/components/Charts';
 import { HeatmapChart } from '@/components/HeatmapChart';
-import { useDateRange, useFilters, useComparison } from '@/hooks/useDashboardData';
+import { useDateRange, useFilters } from '@/hooks/useDashboardData';
 import { calculateMetrics, getHourlyTraffic, getDailyTraffic, generateTrafficData, getContentEngagement, getTopPromotions, generateHeatmapData } from '@/lib/mockData';
 import { AlertCircle, CheckCircle } from 'lucide-react';
 
@@ -17,9 +17,7 @@ export default function Dashboard() {
   const [isClient, setIsClient] = useState(false);
   const { dateRange, handleDateRangeChange } = useDateRange();
   const { selectedLocation, setSelectedLocation, selectedPromotion, setSelectedPromotion } = useFilters();
-  const { comparisonMode, setComparisonMode } = useComparison();
 
-  // Ensure we only generate data on the client side
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -42,7 +40,6 @@ export default function Dashboard() {
     alert('Export functionality would prepare PDF/CSV reports. In production, this would connect to your backend.');
   };
 
-  // Loading state during hydration
   if (!isClient || !mockData || !metrics) {
     return (
       <div className="flex h-screen bg-slate-50">
@@ -66,7 +63,6 @@ export default function Dashboard() {
           <div className="space-y-6">
             <TopMetrics metrics={metrics} />
 
-            {/* Insights Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4 flex gap-3">
                 <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
@@ -252,7 +248,6 @@ export default function Dashboard() {
       <Sidebar activeSection={activeSection} onSectionChange={setActiveSection} />
 
       <main className="flex-1 overflow-auto flex flex-col">
-        {/* Toolbar - Sticky at top */}
         <DashboardToolbar
           dateRange={dateRange}
           onDateRangeChange={handleDateRangeChange}
@@ -263,10 +258,8 @@ export default function Dashboard() {
           onExport={handleExport}
         />
 
-        {/* Main Content */}
         <div className="flex-1 overflow-auto">
           <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
-            {/* Header */}
             <div className="mb-8">
               <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
                 {activeSection === 'overview' && 'Dashboard Overview'}
@@ -276,7 +269,6 @@ export default function Dashboard() {
               </h1>
               <p className="text-slate-600 dark:text-slate-400">Track your restaurant business performance in real-time</p>
               
-              {/* Active Filters Display */}
               {(selectedLocation !== 'All Locations' || selectedPromotion !== 'All Promotions') && (
                 <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg text-sm text-blue-900 dark:text-blue-300">
                   <strong>Active Filters:</strong> 
@@ -287,7 +279,6 @@ export default function Dashboard() {
               )}
             </div>
 
-            {/* Main Content */}
             {renderContent()}
           </div>
         </div>

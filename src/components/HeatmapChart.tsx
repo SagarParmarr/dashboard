@@ -32,7 +32,6 @@ export const HeatmapChart: React.FC<HeatmapChartProps> = ({ data }) => {
 
       <div className="overflow-x-auto">
         <div className="inline-block min-w-full">
-          {/* Day headers */}
           <div className="flex gap-1 mb-2">
             <div className="w-16 flex-shrink-0" />
             {days.map((day) => (
@@ -45,7 +44,6 @@ export const HeatmapChart: React.FC<HeatmapChartProps> = ({ data }) => {
             ))}
           </div>
 
-          {/* Heatmap rows */}
           {data.map((row) => (
             <div key={row.hour} className="flex gap-1 mb-1">
               <div className="w-16 flex-shrink-0 flex items-center justify-end pr-3 text-xs font-medium text-slate-600 dark:text-slate-400">
@@ -73,7 +71,6 @@ export const HeatmapChart: React.FC<HeatmapChartProps> = ({ data }) => {
         </div>
       </div>
 
-      {/* Legend */}
       <div className="mt-6 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
         <div>Low traffic</div>
         <div className="flex gap-1">

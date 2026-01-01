@@ -1,247 +1,137 @@
 # FlawkTV Analytics Dashboard
 
-A professional, production-ready analytics dashboard for FlawkTV digital signage systems. This platform provides comprehensive business intelligence for restaurant owners through interactive charts, real-time metrics, and actionable insights.
+A production-ready analytics dashboard for FlawkTV digital signage. Built with Next.js 16 and TypeScript, this platform helps restaurant owners understand their customer traffic, content engagement, and promotion performance.
 
-![Next.js](https://img.shields.io/badge/Next.js-16.1-black?style=flat-square&logo=next.js)
-![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=flat-square&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=flat-square&logo=tailwind-css)
+![Next.js](https://img.shields.io/badge/Next.js-16.1-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)
 
-## 🎯 Overview
+## What It Does
 
-FlawkTV Analytics Dashboard transforms raw digital signage data into meaningful business insights. Restaurant owners can track customer traffic patterns, monitor content engagement, analyze promotion performance, and make data-driven decisions to optimize their operations.
+This dashboard turns digital signage data into actionable insights. Track customer traffic patterns, see which menu items get attention, and measure how well promotions perform.
 
-### Key Features
+### Features
 
-✅ **Real-time Metrics Dashboard** - KPI summary cards with trend indicators
-✅ **Traffic Analytics** - Hourly, daily, and weekly traffic patterns with heatmaps
-✅ **Content Engagement Tracking** - Monitor menu special and promotion performance
-✅ **Promotion ROI Analysis** - Sales correlation and conversion metrics
-✅ **Interactive Visualizations** - Recharts for responsive, professional charts
-✅ **Date Range Filtering** - Today, Yesterday, Last 7/30 days, or custom ranges
-✅ **Export Functionality** - Generate and download business reports
-✅ **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
-✅ **Professional UI** - Modern analytics platform design
+- Real-time metrics with trend indicators
+- Traffic analytics with hourly/daily breakdowns
+- Content engagement tracking
+- Promotion ROI analysis
+- Interactive charts and heatmaps
+- Date range filtering
+- Dark/Light mode toggle
+- Fully responsive design
 
-## 🛠 Tech Stack
+## Tech Stack
 
-- **Framework**: [Next.js 16.1](https://nextjs.org/) with App Router
-- **Language**: [TypeScript](https://www.typescriptlang.org/) (strict mode)
-- **UI Framework**: [React 19](https://react.dev/)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
-- **Data Visualization**: [Recharts](https://recharts.org/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Date Utilities**: [date-fns](https://date-fns.org/)
-- **Node Version**: 18+
+- **Framework**: Next.js 16.1 with App Router
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS 4
+- **Charts**: Recharts
+- **Icons**: Lucide React
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── dashboard/
-│   │   └── page.tsx              # Main dashboard component
-│   ├── globals.css               # Global Tailwind styles
-│   ├── layout.tsx                # Root layout with metadata
-│   └── page.tsx                  # Redirects to dashboard
+│   ├── dashboard/page.tsx        # Main dashboard
+│   ├── layout.tsx                # Root layout
+│   └── globals.css               # Tailwind styles
 ├── components/
-│   ├── Sidebar.tsx               # Navigation sidebar with collapsible menu
-│   ├── TopMetrics.tsx            # KPI metric cards with trends
-│   ├── DashboardToolbar.tsx      # Date range and filter controls
-│   ├── Charts.tsx                # Recharts components
-│   └── HeatmapChart.tsx          # Interactive heatmap visualization
+│   ├── Sidebar.tsx               # Navigation
+│   ├── TopMetrics.tsx            # KPI cards
+│   ├── DashboardToolbar.tsx      # Filters and controls
+│   ├── Charts.tsx                # Chart components
+│   └── HeatmapChart.tsx          # Traffic heatmap
+├── context/
+│   └── ThemeContext.tsx          # Dark mode state
 ├── hooks/
-│   └── useDashboardData.ts       # Custom hooks for state management
+│   └── useDashboardData.ts       # Custom hooks
 └── lib/
-    ├── types.ts                  # TypeScript type definitions
-    └── mockData.ts               # Mock data generation
+    ├── types.ts                  # TypeScript types
+    └── mockData.ts               # Mock data generator
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
-### Prerequisites
+**Requirements**: Node.js 18+
 
-- Node.js 18+ installed
-- npm or yarn package manager
-
-### Installation
-
-1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd flawk-dashboard
-```
-
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Start the development server:
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-The dashboard will automatically redirect from the root path to `/dashboard`.
-
-## 📊 Dashboard Sections
-
-### Overview
-Main dashboard view with:
-- Top metrics summary (traffic, engagement, dwell time, revenue)
-- Performance insights and recommendations
-- Traffic trends and hourly patterns
-- Traffic heatmap visualization
-- Content engagement breakdown
-- Top-performing promotions table
-
-### Traffic Analytics
-Detailed customer traffic analysis:
-- Daily traffic comparison (current vs. previous period)
-- Hourly traffic patterns throughout the day
-- Day-of-week heatmap showing peak times
-- Detailed traffic statistics and insights
-
-### Content Engagement
-Content performance tracking:
-- Engagement rate by content type
-- Total views and average view time
-- Engagement breakdown pie chart
-- Content performance rankings
-- Engagement optimization insights
-
-### Promotion Performance
-Sales and ROI analysis:
-- Promotion metrics and conversion rates
-- Revenue impact analysis
-- Sales correlation visualization
-- ROI efficiency rankings
-- Promotion optimization recommendations
-
-## 🎨 Key Visualizations
-
-- **Line Charts**: Traffic trends over time with period comparison
-- **Bar Charts**: Hourly and daily traffic comparisons
-- **Pie Charts**: Content engagement breakdown
-- **Heatmaps**: Day vs. Hour traffic patterns with color intensity
-- **Tables**: Detailed promotion performance metrics
-- **Metric Cards**: KPI summaries with trend indicators and comparisons
-
-## 📈 Mock Data
-
-The dashboard includes realistic mock data generation:
-- 30 days of historical traffic data
-- Peak hours: 12-1 PM, 6-7 PM
-- Weekend traffic boost: +15-20%
-- Engagement rates: 40-70%
-- Promotion revenue correlation
-
-### Customizing Mock Data
-
-Edit `src/lib/mockData.ts` to modify:
-- `generateTrafficData()` - Traffic patterns
-- `getContentEngagement()` - Content metrics
-- `getTopPromotions()` - Promotion data
-- `generateHeatmapData()` - Heatmap patterns
-
-## 🔧 Available Scripts
-
-```bash
-# Development server (with hot reload)
+# Run dev server
 npm run dev
 
-# Production build
+# Build for production
 npm run build
-
-# Start production server
-npm start
-
-# Run ESLint
-npm run lint
 ```
 
-## 🎯 Filtering & Controls
+Open [http://localhost:3000](http://localhost:3000) and you'll be redirected to the dashboard.
 
-### Date Range Selector
-- **Today** - Current day metrics
-- **Yesterday** - Previous day comparison
-- **Last 7 Days** - Weekly view
-- **Last 30 Days** - Monthly overview
-- **Custom** - Select specific date range
+## Dashboard Sections
 
-### Filters
-- **Location** - Filter by restaurant location (if multi-location)
-- **Promotion** - Focus on specific promotions
+**Overview** - Summary metrics, traffic trends, heatmaps, and top promotions
 
-### Export
-- Generate downloadable reports (PDF/CSV format)
-- Integration point for backend API
+**Traffic Analytics** - Deep dive into customer traffic with hourly patterns and day-of-week analysis
 
-## 🔌 API Integration
+**Content Engagement** - See which menu items and promotions catch attention
 
-Currently uses mock data for demonstration. To integrate with a real API:
+**Promotion Performance** - ROI metrics, conversion rates, and revenue impact
 
-1. Update `src/lib/mockData.ts` functions to fetch from API endpoints
-2. Add environment variables for API configuration
-3. Add error handling and loading states in components
-4. Implement data caching if needed
+## Mock Data
 
-## 📱 Responsive Design
+Currently uses generated data for demo purposes. It simulates:
 
-The dashboard is fully responsive:
-- **Desktop**: Full-width layout with sidebar
-- **Tablet**: Optimized grid layouts, collapsible sidebar
-- **Mobile**: Single column, touch-friendly controls
+- 30 days of traffic history
+- Peak hours at lunch (12-1 PM) and dinner (6-7 PM)
+- Higher weekend traffic
+- Realistic engagement rates (40-70%)
 
-## ⚡ Performance Optimizations
+To customize, edit `src/lib/mockData.ts`.
 
-- `useMemo` for expensive calculations
-- `useCallback` for event handlers
-- Recharts responsive containers for optimal rendering
-- CSS-in-JS with Tailwind for minimal bundle size
+## Connecting to Real Data
 
-## 🎨 Color Scheme
+Replace the mock data functions in `src/lib/mockData.ts` with API calls. You'll need to:
 
-- **Primary Orange**: `#f97316` - Main CTAs and active states
-- **Secondary Slate**: `#64748b` - Text and borders
-- **Success Green**: `#16a34a` - Positive metrics
-- **Info Blue**: `#2563eb` - Informational content
+1. Add environment variables for your API endpoint
+2. Update the data fetching functions
+3. Add loading states to components
+4. Handle errors appropriately
 
-## 🚀 Deployment
+## Available Commands
 
-### Vercel (Recommended)
-1. Push to GitHub
-2. Connect repository to Vercel
-3. Auto-deploys on push
-
-### Self-Hosted
 ```bash
-npm run build
-npm start
+npm run dev       # Development server
+npm run build     # Production build
+npm start         # Run production server
+npm run lint      # Run ESLint
 ```
 
-## 🗺 Roadmap
+## Filtering & Controls
 
-- Phase 2: User authentication and role-based access
-- Phase 3: Real-time data with WebSocket
-- Phase 4: Email report scheduling
-- Phase 5: Dark mode toggle
-- Phase 6: Mobile app (React Native)
+Filter data by date range (Today, Yesterday, Last 7/30 days, Custom) and location. Export functionality is built-in but needs backend integration.
 
-## 📖 Documentation
+## Responsive Design
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Recharts Documentation](https://recharts.org)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+Works on desktop, tablet, and mobile. The sidebar collapses on smaller screens, and charts adapt to available space.
 
-## 📄 License
+## Color Scheme
 
-Proprietary software for FlawkTV
+- Orange (#f97316) - Primary actions
+- Slate - Text and borders
+- Green - Positive metrics
+- Blue - Information
 
----
+## Deployment
 
-**Status**: Production Ready
-**Last Updated**: January 2026
-**Node Version**: 18+
+**Vercel** (recommended): Connect your repo and it deploys automatically
+
+**Self-hosted**: Run `npm run build` then `npm start`
+
+## What's Next
+
+- User authentication
+- Real-time data updates
+- Scheduled email reports
+- Mobile app version
+
+Built with Next.js 16 • Last updated 1st January 2026
