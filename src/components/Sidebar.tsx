@@ -32,7 +32,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, onSectionChange
     <>
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="fixed top-4 left-4 z-50 lg:hidden bg-orange-600 text-white p-2 rounded-lg"
+        className="fixed bottom-6 right-6 lg:hidden z-40 p-3 bg-orange-600 text-white rounded-full shadow-lg hover:bg-orange-700 transition-colors"
       >
         {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>

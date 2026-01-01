@@ -190,12 +190,12 @@ export const DashboardToolbar: React.FC<ToolbarProps> = ({
 
   return (
     <div className="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm">
-      <div className="px-4 py-4 space-y-3 md:space-y-0">
-        <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center justify-between">
-          <div className="flex flex-wrap gap-2 items-center">
+      <div className="px-4 py-3 md:py-4 space-y-3 md:space-y-0">
+        <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+          <div className="flex flex-wrap gap-2 sm:gap-3 items-center w-full sm:w-auto">
             <DateRangeSelector selectedRange={dateRange} onRangeChange={onDateRangeChange} />
             
-            <div className="hidden sm:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
               <span className="text-xs text-slate-500 dark:text-slate-400">|</span>
               <button
                 onClick={() => setShowFilters(!showFilters)}
@@ -209,13 +209,13 @@ export const DashboardToolbar: React.FC<ToolbarProps> = ({
 
           <button
             onClick={onExport}
-            className="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg transition-colors text-sm whitespace-nowrap"
+            className="w-full sm:w-auto px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg transition-colors text-sm whitespace-nowrap"
           >
             Export Report
           </button>
         </div>
 
-        <div className="sm:hidden">
+        <div className="md:hidden">
           <FilterPanel
             selectedLocation={selectedLocation}
             selectedPromotion={selectedPromotion}
@@ -227,8 +227,8 @@ export const DashboardToolbar: React.FC<ToolbarProps> = ({
       </div>
 
       {showFilters && (
-        <div className="hidden sm:block border-t border-slate-200 dark:border-slate-800 px-4 py-4 bg-slate-50 dark:bg-slate-800/50">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="hidden md:block border-t border-slate-200 dark:border-slate-800 px-4 py-4 bg-slate-50 dark:bg-slate-800/50">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             <FilterPanel
               selectedLocation={selectedLocation}
               selectedPromotion={selectedPromotion}
