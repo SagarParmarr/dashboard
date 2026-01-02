@@ -45,11 +45,11 @@ export const TrafficChart: React.FC<TrafficChartProps> = ({
             cursor={{ fill: 'rgba(249, 115, 22, 0.1)' }}
           />
           <Legend />
-          <Bar dataKey="count" fill="#f97316" name="Current Week" radius={[8, 8, 0, 0]} />
+          <Bar dataKey="count" fill="#f97316" name="This Week" radius={[8, 8, 0, 0]} />
           <Bar
             dataKey="previous"
             fill="#cbd5e1"
-            name="Previous Week"
+            name="Last Week"
             radius={[8, 8, 0, 0]}
           />
         </ComposedChart>
@@ -88,7 +88,7 @@ export const HourlyTrafficChart: React.FC<HourlyTrafficChartProps> = ({ data }) 
             type="monotone"
             dataKey="count"
             stroke="#f97316"
-            name="Current Period"
+            name="This Week"
             strokeWidth={2}
             dot={{ fill: '#f97316', r: 4 }}
             activeDot={{ r: 6 }}
@@ -97,7 +97,7 @@ export const HourlyTrafficChart: React.FC<HourlyTrafficChartProps> = ({ data }) 
             type="monotone"
             dataKey="previous"
             stroke="#cbd5e1"
-            name="Previous Period"
+            name="Last Week"
             strokeWidth={2}
             dot={{ fill: '#cbd5e1', r: 4 }}
             activeDot={{ r: 6 }}

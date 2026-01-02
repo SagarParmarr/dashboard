@@ -56,7 +56,7 @@ const MetricCard: React.FC<MetricCardProps> = ({
               <span>{trend.toFixed(1)}%</span>
             </div>
           )}
-          <span className="text-slate-500 dark:text-slate-400 text-xs">{trendLabel || 'vs last period'}</span>
+          <span className="text-slate-500 dark:text-slate-400 text-xs">{trendLabel || 'vs last week'}</span>
         </div>
       )}
     </div>
@@ -85,7 +85,7 @@ export const TopMetrics: React.FC<TopMetricsProps> = ({ metrics }) => {
         value={metrics.totalTraffic.toLocaleString()}
         icon={<Users className="w-6 h-6" />}
         trend={trafficTrend}
-        trendLabel="vs last period"
+        trendLabel="vs last week"
       />
       <MetricCard
         label="Avg Engagement Rate"
@@ -104,7 +104,7 @@ export const TopMetrics: React.FC<TopMetricsProps> = ({ metrics }) => {
         value={`$${(metrics.totalRevenue / 1000).toFixed(1)}k`}
         icon={<DollarSign className="w-6 h-6" />}
         trend={revenueTrend}
-        trendLabel="vs last period"
+        trendLabel="vs last week"
       />
     </div>
   );
